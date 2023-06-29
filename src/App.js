@@ -1,7 +1,8 @@
 /** @format */
 
 import React from 'react';
-import { Route, Link, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Route, Routes, Router } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
 import { Navbar } from './components';
@@ -21,22 +22,18 @@ const App = () => {
       <div className="main">
         <Layout>
           <div className="routes">
+            {/*  use routes instead of Switch */}
+
             <Routes>
-              <Route exact path="/">
-                <Homepage />
-              </Route>
-              <Route exact path="/exchange">
-                <Exchange />
-              </Route>
-              <Route exact path="/cryptocurrencies">
-                <Cryptocurrencies />
-              </Route>
-              <Route exact path="/crypto/:coinId">
-                <CryptoDetails />
-              </Route>
-              <Route exact path="/news">
-                <News />
-              </Route>
+              <Route exact path="/" element={<Homepage />} />
+              <Route exact path="/exchange" element={<Exchange />} />
+              <Route
+                exact
+                path="/cryptocurrencies"
+                element={<Cryptocurrencies />}
+              />
+              <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
+              <Route exact path="/news" element={<News />} />{' '}
             </Routes>
           </div>
         </Layout>
